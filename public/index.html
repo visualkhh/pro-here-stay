@@ -5,10 +5,13 @@
 
 </body>
 <script>
-    if (Math.random() * 10 > 5 ){
+    var a = Math.random() * 10 > 3;
+    if (a < 3){
         document.write('덕분아 미안해.');
-    } else {
-        document.write('덕분아 시링해.');
+    } else if (a < 7){
+        document.write('덕분아 고마워.');
+    } else if (a <= 10){
+        document.write('덕분아 사링해.');
     }
 
 </script>
