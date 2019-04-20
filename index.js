@@ -2,6 +2,13 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT;
  
+var expressWs = require('express-ws')(app);
+app.ws('/echo', function(ws, req) {
+    ws.on('message', function(msg) {
+      ws.send(msg);
+    });
+  });
+
 var o = {} // empty Object
 var key = 'reponse';
 o[key] = []; // empty Array, which you can push() values into
