@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+app.use(express.static('public'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
 const port = process.env.PORT;
  
 var expressWs = require('express-ws')(app);
@@ -27,7 +30,7 @@ o[key].push(data2);
  
 var result = JSON.stringify(o);
  
-app.get("/", (req, res) => {
-res.send(result);
-});
-app.listen(port);
+// app.get("/", (req, res) => {
+// res.send(result);
+// });
+app.listen(port||80);
